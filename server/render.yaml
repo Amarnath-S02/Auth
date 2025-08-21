@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: skillbridge-backend
+    env: node
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        fromSecret: mongo_uri_secret
+      - key: GEMINI_API_KEY
+        fromSecret: gemini_api_key_secret
