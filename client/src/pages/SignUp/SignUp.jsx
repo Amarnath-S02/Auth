@@ -15,7 +15,7 @@ const SignUp = () => {
     e.preventDefault();
     
     try{
-      const res=await axios.post("http://localhost:3000/api/signup",userData);
+      const res=await axios.post("https://auth-lqrk.onrender.com/api/signup",userData);
       toast.success("Registraion Sucessful");
       setTimeout(()=>navigate("/login"),2000);
       console.log(res.data)
