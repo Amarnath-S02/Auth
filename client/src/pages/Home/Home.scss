@@ -25,14 +25,24 @@
       color: #1d4ed8;
       cursor: pointer;
       transition: transform 0.3s;
+
       &:hover {
         transform: scale(1.05);
       }
     }
 
     .nav-buttons {
+      display: flex;
+      align-items: center;
+
+      .welcome {
+        margin-right: 1rem;
+        font-weight: bold;
+        color: #1d4ed8;
+      }
+
       button {
-        margin-left: 1rem;
+        margin-left: 0.5rem;
         padding: 0.6rem 1.4rem;
         border: none;
         border-radius: 6px;
@@ -43,6 +53,7 @@
         &.sign-in {
           background-color: #1d4ed8;
           color: white;
+
           &:hover {
             background-color: #2563eb;
             transform: scale(1.05);
@@ -52,8 +63,19 @@
         &.join {
           background-color: #e5e7eb;
           color: #333;
+
           &:hover {
             background-color: #d1d5db;
+            transform: scale(1.05);
+          }
+        }
+
+        &.logout {
+          background-color: #ef4444; // red
+          color: white;
+
+          &:hover {
+            background-color: #dc2626;
             transform: scale(1.05);
           }
         }
@@ -72,17 +94,20 @@
 
     .hero-text {
       flex: 1 1 500px;
+
       h2 {
         font-size: 3rem;
         margin-bottom: 1rem;
         animation: fadeInUp 1s ease forwards;
       }
+
       p {
         margin-bottom: 1.5rem;
         font-size: 1.1rem;
         color: #555;
         animation: fadeInUp 1.2s ease forwards;
       }
+
       .explore-btn {
         padding: 0.8rem 1.8rem;
         border: none;
@@ -103,6 +128,7 @@
 
     .hero-image {
       flex: 1 1 400px;
+
       img {
         width: 100%;
         border-radius: 12px;
@@ -123,6 +149,7 @@
       margin-bottom: 2.5rem;
       position: relative;
       display: inline-block;
+
       &::after {
         content: "";
         display: block;
@@ -218,6 +245,7 @@
   .hero {
     flex-direction: column-reverse;
     text-align: center;
+
     .hero-text {
       margin-top: 2rem;
     }

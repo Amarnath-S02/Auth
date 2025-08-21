@@ -1,15 +1,41 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.scss"; // Import SCSS
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Remove token
+    localStorage.removeItem("username"); // Optional: remove username
+    navigate("/login", { replace: true }); // Redirect to login
+  };
+
+  const username = localStorage.getItem("username"); // Get username to display
+
   return (
     <div className="homepage">
       {/* Navbar */}
       <nav className="navbar">
         <h1 className="logo">SkillBridge</h1>
         <div className="nav-buttons">
-          <button className="sign-in">Sign In</button>
-          <button className="join">Join</button>
+          {username ? (
+            <>
+              <span className="welcome">Welcome, {username}</span>
+              <button className="logout" onClick={handleLogout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <button className="sign-in" onClick={() => navigate("/login")}>
+                Sign In
+              </button>
+              <button className="join" onClick={() => navigate("/signup")}>
+                Join
+              </button>
+            </>
+          )}
         </div>
       </nav>
 
@@ -23,9 +49,7 @@ const Home = () => {
           </p>
           <button className="explore-btn">Explore Services</button>
         </div>
-        <div className="hero-image">
-        
-        </div>
+        <div className="hero-image"></div>
       </section>
 
       {/* Features Section */}
