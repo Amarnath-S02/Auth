@@ -8,26 +8,28 @@ dotenv.config();
 
 const app = express();
 
-// Define allowed origins
-const allowedOrigins = [
-  'http://localhost:5173',                   // Local frontend
-  'https://auth-sable-kappa.vercel.app'     // Production frontend
-];
+
+
 
 // CORS middleware
+import cors from "cors";
+
+const allowedOrigins = [
+  "https://auth-sable-kappa.vercel.app", // your deployed frontend
+  "http://localhost:5173"                 // local dev
+];
+
 app.use(cors({
   origin: function(origin, callback) {
-    // Allow non-browser requests (like Postman or server-to-server)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = `The CORS policy for this site does not allow access from the specified Origin: ${origin}`;
-      return callback(new Error(msg), false);
+    if(!origin) return callback(null, true); // allow server-to-server requests
+    if(!allowedOrigins.includes(origin)) {
+      return callback(new Error(`CORS policy does not allow access from ${origin}`), false);
     }
     return callback(null, true);
   },
   credentials: true
 }));
+
 
 // Body parsing middleware
 app.use(express.json());
