@@ -15,7 +15,7 @@ const app = express();
 import cors from "cors";
 
 const allowedOrigins = [
-  "https://auth-sable-kappa.vercel.app", // your deployed frontend
+  "auth-j80addtct-amarnaths-projects-925337c0.vercel.app", // your deployed frontend
   "http://localhost:5173"                 // local dev
 ];
 
