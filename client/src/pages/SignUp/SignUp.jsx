@@ -15,7 +15,7 @@ const SignUp = () => {
     e.preventDefault();
     
     try{
-      const res=await axios.post("https://auth-lqrk.onrender.com/api/signup",userData);
+      const res=await axios.post("auth-j80addtct-amarnaths-projects-925337c0.vercel.app/api/signup",userData);
       toast.success("Registraion Sucessful");
       setTimeout(()=>navigate("/login"),2000);
       console.log(res.data)

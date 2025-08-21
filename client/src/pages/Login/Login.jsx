@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("https://auth-lqrk.onrender.com/api/login", formData);
+      const res = await axios.post("auth-j80addtct-amarnaths-projects-925337c0.vercel.app/api/login", formData);
 
       toast.success("Login Successful");
 
